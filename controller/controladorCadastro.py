@@ -1,5 +1,3 @@
-# controller/controladorCadastro.py
-
 from model.ModeloLogin import ModeloCadastro
 from view.ViewCadastro import TelaCadastroPaciente, TelaCadastroFuncionario
 import PySimpleGUI as sg

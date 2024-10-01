@@ -1,5 +1,3 @@
-# controller/controladorSistema.py
-
 from controller.ControladorLogin import ControladorLogin
 
 class ControladorSistema:

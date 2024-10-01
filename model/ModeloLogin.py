@@ -1,7 +1,3 @@
-# model/model.py
-
-# model/model.py
-
 class Paciente:
     def __init__(self, nome, idade):
         self.nome = nome

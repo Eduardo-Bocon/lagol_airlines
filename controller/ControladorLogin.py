@@ -1,5 +1,3 @@
-# controller/controladorLogin.py
-
 from model.ModeloLogin import ModeloCadastro
 from view.ViewCadastro import TelaCadastroPaciente, TelaCadastroFuncionario
 from view.view import TelaLogin

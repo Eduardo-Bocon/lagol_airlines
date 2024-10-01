@@ -1,5 +1,3 @@
-# view/view.py
-
 import PySimpleGUI as sg
 
 class TelaLogin:

@@ -1,5 +1,3 @@
-# view/ViewCadastro.py
-
 import PySimpleGUI as sg
 
 class TelaCadastroPaciente:
