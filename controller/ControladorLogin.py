@@ -1,6 +1,5 @@
 from model.ModeloLogin import ModeloCadastro
-from view.ViewCadastro import TelaCadastroPaciente, TelaCadastroFuncionario
-from view.view import TelaLogin
+from view.ViewLogin import TelaLogin
 from controller.controladorCadastro import ControladorCadastro
 import PySimpleGUI as sg
 
