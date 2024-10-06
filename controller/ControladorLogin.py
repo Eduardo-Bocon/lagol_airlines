@@ -1,6 +1,6 @@
 from model.ModeloLogin import ModeloCadastro
 from view.ViewLogin import TelaLogin
-from controller.controladorCadastro import ControladorCadastro
+from ControladorCadastroPassageiro import PassageiroController
 import PySimpleGUI as sg
 
 class ControladorLogin:
@@ -28,6 +28,4 @@ class ControladorLogin:
                 self.abrir_cadastro()
 
     def abrir_cadastro(self):
-        controlador_cadastro = ControladorCadastro()
-        controlador_cadastro.cadastrar_paciente()
-        controlador_cadastro.cadastrar_funcionario()
+        controlador_cadastro = PassageiroController()

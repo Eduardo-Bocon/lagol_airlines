@@ -1,9 +1,10 @@
+# view/ViewLogin.py
 import tkinter as tk
 from tkinter import messagebox
 
 class TelaLogin:
     def __init__(self, controlador):
-        self.controlador = controlador  # Salva a referência do controlador
+        self.controlador = controlador
         self.janela = tk.Tk()
         self.janela.title("Tela de Login")
 
@@ -19,7 +20,7 @@ class TelaLogin:
         self.botao_login = tk.Button(self.janela, text="Login", command=self.login)
         self.botao_login.pack(side=tk.LEFT, padx=20, pady=10)
 
-        self.botao_cadastrar = tk.Button(self.janela, text="Cadastrar", command=self.abrir_cadastro)
+        self.botao_cadastrar = tk.Button(self.janela, text="Cadastrar", command=self.cadastrar)
         self.botao_cadastrar.pack(side=tk.LEFT, padx=20, pady=10)
 
         self.botao_sair = tk.Button(self.janela, text="Sair", command=self.sair, bg='red', fg='white')
@@ -28,7 +29,7 @@ class TelaLogin:
     def login(self):
         username = self.entry_username.get()
         password = self.entry_password.get()
-        
+
         if username and password:
             # Aqui você pode adicionar a lógica de login
             messagebox.showinfo("Login", f"Usuário {username} logado com sucesso!")
@@ -36,9 +37,8 @@ class TelaLogin:
         else:
             messagebox.showwarning("Campos Vazios", "Por favor, preencha todos os campos.")
 
-    def abrir_cadastro(self):
-        # Chama o método do controlador para abrir a tela de cadastro
-        self.controlador.abrir_cadastro()
+    def cadastrar(self):
+        self.controlador.iniciar_cadastro_passageiro()  # Chama o controlador para abrir a tela de cadastro
 
     def sair(self):
         self.janela.destroy()

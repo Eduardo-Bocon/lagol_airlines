@@ -1,3 +1,4 @@
+# view/ViewCadastroPassageiro.py
 import tkinter as tk
 from tkinter import messagebox
 
@@ -11,38 +12,37 @@ class TelaCadastroPassageiro:
         self.entry_nome = tk.Entry(self.janela)
         self.entry_nome.grid(row=0, column=1)
 
-        tk.Label(self.janela, text="Idade:").grid(row=1, column=0)
-        self.entry_idade = tk.Entry(self.janela)
-        self.entry_idade.grid(row=1, column=1)
+        tk.Label(self.janela, text="CPF:").grid(row=1, column=0)
+        self.entry_cpf = tk.Entry(self.janela)
+        self.entry_cpf.grid(row=1, column=1)
 
-        tk.Label(self.janela, text="Documento:").grid(row=2, column=0)
-        self.entry_documento = tk.Entry(self.janela)
-        self.entry_documento.grid(row=2, column=1)
+        tk.Label(self.janela, text="Senha:").grid(row=2, column=0)
+        self.entry_senha = tk.Entry(self.janela, show='*')
+        self.entry_senha.grid(row=2, column=1)
+
+        tk.Label(self.janela, text="Data de Nascimento:").grid(row=3, column=0)
+        self.entry_data_nascimento = tk.Entry(self.janela)
+        self.entry_data_nascimento.grid(row=3, column=1)
 
         self.botao_cadastrar = tk.Button(self.janela, text="Cadastrar", command=self.cadastrar)
-        self.botao_cadastrar.grid(row=3, columnspan=2)
-
-        self.botao_voltar = tk.Button(self.janela, text="Voltar", command=self.voltar)
-        self.botao_voltar.grid(row=4, columnspan=2)
+        self.botao_cadastrar.grid(row=4, columnspan=2)
 
     def cadastrar(self):
         nome = self.entry_nome.get()
-        idade = self.entry_idade.get()
-        documento = self.entry_documento.get()
+        cpf = self.entry_cpf.get()
+        senha = self.entry_senha.get()
+        data_nascimento = self.entry_data_nascimento.get()
 
-        if not nome or not idade or not documento:
+        if not nome or not cpf or not senha or not data_nascimento:
             messagebox.showwarning("Campos Vazios", "Por favor, preencha todos os campos.")
             return
 
-        self.controlador.cadastrar_passageiro(nome, idade, documento)
+        self.controlador.cadastrar_passageiro(nome, cpf, senha, data_nascimento)
         messagebox.showinfo("Cadastro", "Passageiro cadastrado com sucesso!")
         self.entry_nome.delete(0, tk.END)
-        self.entry_idade.delete(0, tk.END)
-        self.entry_documento.delete(0, tk.END)
-
-    def voltar(self):
-        self.janela.destroy()  # Fecha a tela de cadastro
-        self.controlador.janela_login.janela.deiconify()  # Mostra a tela de login novamente
+        self.entry_cpf.delete(0, tk.END)
+        self.entry_senha.delete(0, tk.END)
+        self.entry_data_nascimento.delete(0, tk.END)
 
     def iniciar(self):
         self.janela.mainloop()

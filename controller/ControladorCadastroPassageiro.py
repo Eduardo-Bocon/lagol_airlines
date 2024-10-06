@@ -1,14 +1,13 @@
-from model.ModeloCadastroPassageiro import PassageiroModel
+# controller/ControladorCadastroPassageiro.py
+from view.ViewCadastroPassageiro import TelaCadastroPassageiro
 
-class PassageiroController:
-    def __init__(self, db_path):
-        self.model = PassageiroModel(db_path)
+class ControladorCadastroPassageiro:
+    def __init__(self):
+        self.tela_cadastro_passageiro = TelaCadastroPassageiro(self)
 
-    def cadastrar_passageiro(self, nome, idade, email):
-        if nome and idade and email:
-            self.model.adicionar_passageiro(nome, idade, email)
-            return True
-        return False
+    def cadastrar_passageiro(self, nome, cpf, senha, data_nascimento):
+        # Implementar a lógica para armazenar os dados do passageiro
+        print(f"Passageiro cadastrado: {nome}, CPF: {cpf}, Data de Nascimento: {data_nascimento}")
 
-    def fechar(self):
-        self.model.fechar_conexao()
+    def mostrar_tela_cadastro(self):
+        self.tela_cadastro_passageiro.iniciar()  # Chama a função para iniciar a tela de cadastro
