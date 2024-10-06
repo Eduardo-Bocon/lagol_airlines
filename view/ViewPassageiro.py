@@ -32,5 +32,7 @@ class TelaPassageiro(tk.Tk):
         pass
 
     def alterar_dados(self):#Adicionar redirecionamento aqui
-        pass
+        self.destroy()
+        from view.ViewAlterarPassageiro import TelaAlterarPassageiro
+        TelaAlterarPassageiro(self.controlador)
 
