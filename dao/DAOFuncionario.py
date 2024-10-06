@@ -21,7 +21,16 @@ class DAOFuncionario(DAO):
             return Funcionario(
                 nome=funcionario_dict['nome'],
                 cpf=funcionario_dict['cpf'],
-                cargo=funcionario_dict['cargo'],
-                senha=funcionario_dict['senha']
+                cargo=funcionario_dict['cargo']
             )
         return None
+
+    def buscar_todos(self):
+        funcionarios = []
+        for funcionario_dict in self.__collection.find():
+            funcionarios.append(Funcionario(
+                nome=funcionario_dict['nome'],
+                cpf=funcionario_dict['cpf'],
+                cargo=funcionario_dict['cargo']
+            ))
+        return funcionarios
