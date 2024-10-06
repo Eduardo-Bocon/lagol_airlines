@@ -27,3 +27,18 @@ class DAOPassageiro(DAO):
                 senha=passageiro_dict['senha']
             )
         return None
+
+    def atualizar(self, passageiro):
+        try:
+            result = self.__collection.update_one(
+                {"cpf": passageiro.cpf},
+                {"$set": {
+                    "nome": passageiro.nome,
+                    "data_nascimento": passageiro.data_nascimento,
+                    "senha": passageiro.senha
+                }}
+            )
+            return result.modified_count > 0
+        except Exception as e:
+            print(f"Erro ao atualizar passageiro: {e}")
+            return False

@@ -4,38 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aa6ee010-62f6-4a22-9333-170215d0159f" name="Changes" comment="Adicionando o dotenv para armazenar ocultar informações sigilosas">
-      <change afterPath="$PROJECT_DIR$/dao/DAOPassageiro.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/model/Aeronaves.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/model/ModeloAeronaves.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/model/Pessoas/Admins.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/model/Pessoas/Aeromocas.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/model/Pessoas/Funcionarios.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/model/Pessoas/Passageiros.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/model/Pessoas/Pilotos.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/view/ViewAdmin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/view/ViewAdminLogin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/view/ViewFuncionários.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/view/ViewPassageiro.py" afterDir="false" />
+    <list default="true" id="aa6ee010-62f6-4a22-9333-170215d0159f" name="Changes" comment="Cadastro Passageiro OK&#10;&quot;Cadastro&quot; Admin Ok&#10;Login Ok">
+      <change afterPath="$PROJECT_DIR$/controller/ControladorFuncionario.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dao/DAOFuncionario.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/view/ViewAlterarFuncionario.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/view/ViewAlterarPassageiro.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/view/ViewCadastroFuncinario.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/ControladorCadastroPassageiro.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/ControladorLogin.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/ControladorPassageiro.py" beforeDir="false" afterPath="$PROJECT_DIR$/controller/ControladorPassageiro.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controller/ControladorSistema.py" beforeDir="false" afterPath="$PROJECT_DIR$/controller/ControladorSistema.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dao/DAO.py" beforeDir="false" afterPath="$PROJECT_DIR$/dao/DAO.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database.db" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/Aeronave.py" beforeDir="false" afterPath="$PROJECT_DIR$/@dd_@dm!n.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/ModeloCadastroPassageiro.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/Pessoas/Aeromoca.py" beforeDir="false" afterPath="$PROJECT_DIR$/controller/ControladorAdminLogin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/Pessoas/Cliente.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/Pessoas/Cliente.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/Pessoas/Funcionario.py" beforeDir="false" afterPath="$PROJECT_DIR$/controller/ControladorPassageiro.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/Pessoas/Passageiro.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/Pessoas/Pessoa.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/Pessoas/Pessoas.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/Pessoas/Piloto.py" beforeDir="false" afterPath="$PROJECT_DIR$/dao/DAOAdminLogin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/Reserva.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/Reservas.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/Voo.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/Voos.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/ViewCadastroPassageiro.py" beforeDir="false" afterPath="$PROJECT_DIR$/view/ViewCadastroPassageiro.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dao/DAOPassageiro.py" beforeDir="false" afterPath="$PROJECT_DIR$/dao/DAOPassageiro.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/Pessoas/Aeromocas.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/Pessoas/Aeromocas.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/Pessoas/Funcionarios.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/Pessoas/Funcionarios.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/Pessoas/Passageiros.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/Pessoas/Passageiros.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/Pessoas/Pessoas.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/Pessoas/Pessoas.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/Pessoas/Pilotos.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/Pessoas/Pilotos.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/view/ViewLogin.py" beforeDir="false" afterPath="$PROJECT_DIR$/view/ViewLogin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/ViewPassageiro.py" beforeDir="false" afterPath="$PROJECT_DIR$/view/ViewPassageiro.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,20 +67,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python.@dd_@dm!n.executor": "Run",
-    "Python.DAO.executor": "Run",
-    "Python.ViewCadastroPassageiro.executor": "Run",
-    "Python.ViewFuncionários.executor": "Run",
-    "Python.main.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
-    "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/Users/Danrley/PycharmProjects/lagol_airlines",
-    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.@dd_@dm!n.executor&quot;: &quot;Run&quot;,
+    &quot;Python.DAO.executor&quot;: &quot;Run&quot;,
+    &quot;Python.ViewCadastroPassageiro.executor&quot;: &quot;Run&quot;,
+    &quot;Python.ViewFuncionários.executor&quot;: &quot;Run&quot;,
+    &quot;Python.main.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Danrley/PycharmProjects/lagol_airlines&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Danrley\PycharmProjects\lagol_airlines" />
@@ -185,7 +170,15 @@
       <option name="project" value="LOCAL" />
       <updated>1728177439587</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Cadastro Passageiro OK&#10;&quot;Cadastro&quot; Admin Ok&#10;Login Ok">
+      <option name="closed" value="true" />
+      <created>1728205719133</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1728205719133</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -231,6 +224,7 @@
     <MESSAGE value="Adicionando o gitignore" />
     <MESSAGE value="Adição da configuração do MongoDB." />
     <MESSAGE value="Adicionando o dotenv para armazenar ocultar informações sigilosas" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adicionando o dotenv para armazenar ocultar informações sigilosas" />
+    <MESSAGE value="Cadastro Passageiro OK&#10;&quot;Cadastro&quot; Admin Ok&#10;Login Ok" />
+    <option name="LAST_COMMIT_MESSAGE" value="Cadastro Passageiro OK&#10;&quot;Cadastro&quot; Admin Ok&#10;Login Ok" />
   </component>
 </project>
