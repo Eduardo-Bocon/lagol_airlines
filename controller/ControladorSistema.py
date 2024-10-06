@@ -1,4 +1,27 @@
+from controller.ControladorPassageiro import ControladorPassageiro
+from controller.ControladorAdminLogin import ControladorAdminLogin
 from view.ViewLogin import TelaLogin
+
+class ControladorSistema:
+    def __init__(self):
+        self.__controlador_passageiro = ControladorPassageiro()
+        self.__controlador_admin_login = ControladorAdminLogin()
+
+    @property
+    def controlador_passageiro(self):
+        return self.__controlador_passageiro
+
+    @property
+    def controlador_admin_login(self):
+        return self.__controlador_admin_login
+
+    def iniciar(self):
+        app = TelaLogin(self)
+        app.mainloop()
+
+
+
+"""from view.ViewLogin import TelaLogin
 from view.ViewCadastroPassageiro import TelaCadastroPassageiro
 
 class ControladorSistema:
@@ -20,3 +43,4 @@ class ControladorSistema:
     def cadastrar_passageiro(self, nome, cpf, senha, data_nascimento):
         # Implementar a lógica para cadastrar o passageiro
         pass  # Substitua pelo código de persistência
+"""

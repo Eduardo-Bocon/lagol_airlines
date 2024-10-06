@@ -1,5 +1,5 @@
 from datetime import date
-from model.Pessoas.Pessoa import Pessoa  # Importando a classe Pessoa
+from model.Pessoas.Pessoas import Pessoa  # Importando a classe Pessoa
 
 class Cliente(Pessoa):
     

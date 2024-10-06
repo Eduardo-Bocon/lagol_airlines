@@ -1,4 +1,59 @@
 import tkinter as tk
+from tkcalendar import DateEntry
+from tkinter import messagebox
+
+class TelaCadastro(tk.Toplevel):
+    def __init__(self, controlador):
+        super().__init__()
+        self.controlador = controlador
+        self.title("Tela de Cadastro")
+        self.geometry("800x600")
+
+        self.nome_label = tk.Label(self, text="Nome:")
+        self.nome_label.pack()
+        self.nome_entry = tk.Entry(self)
+        self.nome_entry.pack()
+
+        self.cpf_label = tk.Label(self, text="CPF:")
+        self.cpf_label.pack()
+        self.cpf_entry = tk.Entry(self)
+        self.cpf_entry.pack()
+
+        self.data_nasc_label = tk.Label(self, text="Data de Nascimento:")
+        self.data_nasc_label.pack()
+        self.data_nasc_entry = DateEntry(self, width=12, background='darkblue', foreground='white', borderwidth=2)
+        self.data_nasc_entry.pack()
+
+        self.senha_label = tk.Label(self, text="Senha:")
+        self.senha_label.pack()
+        self.senha_entry = tk.Entry(self, show="*")
+        self.senha_entry.pack()
+
+        self.confirmar_senha_label = tk.Label(self, text="Confirmar Senha:")
+        self.confirmar_senha_label.pack()
+        self.confirmar_senha_entry = tk.Entry(self, show="*")
+        self.confirmar_senha_entry.pack()
+
+        self.cadastrar_button = tk.Button(self, text="Cadastrar", command=self.cadastrar)
+        self.cadastrar_button.pack()
+
+    def cadastrar(self):
+        nome = self.nome_entry.get()
+        cpf = self.cpf_entry.get()
+        data_nasc = self.data_nasc_entry.get_date()
+        senha = self.senha_entry.get()
+        confirmar_senha = self.confirmar_senha_entry.get()
+
+        sucesso, mensagem = self.controlador.controlador_passageiro.cadastrar_passageiro(nome, cpf, data_nasc, senha, confirmar_senha)
+
+        if sucesso:
+            messagebox.showinfo("Sucesso", mensagem)
+            self.destroy()
+        else:
+            messagebox.showerror("Erro", mensagem)
+
+
+"""import tkinter as tk
 from tkinter import messagebox
 
 class TelaCadastroPassageiro:
@@ -47,7 +102,7 @@ class TelaCadastroPassageiro:
         if not nome or not cpf or not data_nascimento or not senha or not confirmar_senha:
             messagebox.showwarning("Campos Vazios", "Por favor, preencha todos os campos.")
             return
-        
+
         if senha != confirmar_senha:
             messagebox.showwarning("Erro", "As senhas não coincidem.")
             return
@@ -64,4 +119,4 @@ class TelaCadastroPassageiro:
         self.controlador.retornar_login()  # Retorna para a tela de login
 
     def iniciar(self):
-        self.janela.deiconify()  # Mostra a janela
+        self.janela.deiconify()  # Mostra a janela"""

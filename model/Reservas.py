@@ -1,5 +1,5 @@
-from model import Voo
-from model.Pessoas import Passageiro
+from model import Voos
+from model.Pessoas import Passageiros
 
 
 class Reserva:

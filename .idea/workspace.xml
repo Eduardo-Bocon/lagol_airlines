@@ -4,8 +4,38 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aa6ee010-62f6-4a22-9333-170215d0159f" name="Changes" comment="Adicionando o gitignore">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="aa6ee010-62f6-4a22-9333-170215d0159f" name="Changes" comment="Adicionando o dotenv para armazenar ocultar informações sigilosas">
+      <change afterPath="$PROJECT_DIR$/dao/DAOPassageiro.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/Aeronaves.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/ModeloAeronaves.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/Pessoas/Admins.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/Pessoas/Aeromocas.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/Pessoas/Funcionarios.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/Pessoas/Passageiros.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/Pessoas/Pilotos.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/view/ViewAdmin.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/view/ViewAdminLogin.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/view/ViewFuncionários.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/view/ViewPassageiro.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/ControladorCadastroPassageiro.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/ControladorLogin.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/ControladorSistema.py" beforeDir="false" afterPath="$PROJECT_DIR$/controller/ControladorSistema.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dao/DAO.py" beforeDir="false" afterPath="$PROJECT_DIR$/dao/DAO.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/Aeronave.py" beforeDir="false" afterPath="$PROJECT_DIR$/@dd_@dm!n.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/ModeloCadastroPassageiro.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/Pessoas/Aeromoca.py" beforeDir="false" afterPath="$PROJECT_DIR$/controller/ControladorAdminLogin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/Pessoas/Cliente.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/Pessoas/Cliente.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/Pessoas/Funcionario.py" beforeDir="false" afterPath="$PROJECT_DIR$/controller/ControladorPassageiro.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/Pessoas/Passageiro.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/Pessoas/Pessoa.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/Pessoas/Pessoas.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/Pessoas/Piloto.py" beforeDir="false" afterPath="$PROJECT_DIR$/dao/DAOAdminLogin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/Reserva.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/Reservas.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/Voo.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/Voos.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/ViewCadastroPassageiro.py" beforeDir="false" afterPath="$PROJECT_DIR$/view/ViewCadastroPassageiro.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/ViewLogin.py" beforeDir="false" afterPath="$PROJECT_DIR$/view/ViewLogin.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,23 +50,27 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="PUSH_AUTO_UPDATE" value="true" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "danrleymory1"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;danrleymory1&quot;
   }
-}]]></component>
+}</component>
   <component name="GithubDefaultAccount">
     <option name="defaultAccountId" value="d2a03a69-0a02-4aa1-97fb-883d5bff5331" />
   </component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/danrleymory1/lagol_airlines.git",
-    "accountId": "d2a03a69-0a02-4aa1-97fb-883d5bff5331"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/danrleymory1/lagol_airlines.git&quot;,
+    &quot;accountId&quot;: &quot;d2a03a69-0a02-4aa1-97fb-883d5bff5331&quot;
   }
-}]]></component>
+}</component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 2
 }</component>
@@ -48,23 +82,60 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Python.main.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Danrley/PycharmProjects/lagol_airlines/controller&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Python.@dd_@dm!n.executor": "Run",
+    "Python.DAO.executor": "Run",
+    "Python.ViewCadastroPassageiro.executor": "Run",
+    "Python.ViewFuncionários.executor": "Run",
+    "Python.main.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/Users/Danrley/PycharmProjects/lagol_airlines",
+    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Danrley\PycharmProjects\lagol_airlines\controller" />
+      <recent name="C:\Users\Danrley\PycharmProjects\lagol_airlines" />
       <recent name="C:\Users\Danrley\PycharmProjects\lagol_airlines\dao" />
+      <recent name="C:\Users\Danrley\PycharmProjects\lagol_airlines\controller" />
       <recent name="C:\Users\Danrley\PycharmProjects\lagol_airlines\exceptions" />
       <recent name="C:\Users\Danrley\PycharmProjects\lagol_airlines\model" />
-      <recent name="C:\Users\Danrley\PycharmProjects\lagol_airlines\view" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Danrley\PycharmProjects\lagol_airlines\dao" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="lagol_airlines" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.main" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -106,7 +177,15 @@
       <option name="project" value="LOCAL" />
       <updated>1727480027695</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Adicionando o dotenv para armazenar ocultar informações sigilosas">
+      <option name="closed" value="true" />
+      <created>1728177439587</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1728177439587</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -150,6 +229,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Iniciando esse projeto top!" />
     <MESSAGE value="Adicionando o gitignore" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adicionando o gitignore" />
+    <MESSAGE value="Adição da configuração do MongoDB." />
+    <MESSAGE value="Adicionando o dotenv para armazenar ocultar informações sigilosas" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adicionando o dotenv para armazenar ocultar informações sigilosas" />
   </component>
 </project>
