@@ -1,4 +1,3 @@
-# view/ViewLogin.py
 import tkinter as tk
 from tkinter import messagebox
 
@@ -6,42 +5,36 @@ class TelaLogin:
     def __init__(self, controlador):
         self.controlador = controlador
         self.janela = tk.Tk()
-        self.janela.title("Tela de Login")
+        self.janela.title("Login")
+        self.janela.geometry("400x400")
 
-        # Layout
-        tk.Label(self.janela, text="Usuário:", font=('Helvetica', 12)).pack(pady=5)
-        self.entry_username = tk.Entry(self.janela)
-        self.entry_username.pack(pady=5)
+        tk.Label(self.janela, text="Login", font=('Helvetica', 16, 'bold')).pack(pady=10)
+
+        tk.Label(self.janela, text="CPF:", font=('Helvetica', 12)).pack(pady=5)
+        self.entry_cpf = tk.Entry(self.janela, font=('Helvetica', 12))
+        self.entry_cpf.pack(pady=5)
 
         tk.Label(self.janela, text="Senha:", font=('Helvetica', 12)).pack(pady=5)
-        self.entry_password = tk.Entry(self.janela, show='*')
-        self.entry_password.pack(pady=5)
+        self.entry_senha = tk.Entry(self.janela, show='*', font=('Helvetica', 12))
+        self.entry_senha.pack(pady=5)
 
-        self.botao_login = tk.Button(self.janela, text="Login", command=self.login)
-        self.botao_login.pack(side=tk.LEFT, padx=20, pady=10)
+        self.botao_login = tk.Button(self.janela, text="Login", command=self.login, bg='green', fg='white', font=('Helvetica', 12))
+        self.botao_login.pack(pady=20)
 
-        self.botao_cadastrar = tk.Button(self.janela, text="Cadastrar", command=self.cadastrar)
-        self.botao_cadastrar.pack(side=tk.LEFT, padx=20, pady=10)
-
-        self.botao_sair = tk.Button(self.janela, text="Sair", command=self.sair, bg='red', fg='white')
-        self.botao_sair.pack(side=tk.RIGHT, padx=20, pady=10)
+        self.botao_cadastrar = tk.Button(self.janela, text="Cadastrar", command=self.controlador.retornar_cadastro, bg='blue', fg='white', font=('Helvetica', 12))
+        self.botao_cadastrar.pack(pady=5)
 
     def login(self):
-        username = self.entry_username.get()
-        password = self.entry_password.get()
+        cpf = self.entry_cpf.get()
+        senha = self.entry_senha.get()
 
-        if username and password:
-            # Aqui você pode adicionar a lógica de login
-            messagebox.showinfo("Login", f"Usuário {username} logado com sucesso!")
-            self.janela.destroy()
+        # Implementar a lógica para verificar o login
+        if cpf == "123456789" and senha == "senha":
+            messagebox.showinfo("Login", "Login realizado com sucesso!")
+            # Aqui você pode direcionar para a tela principal
         else:
-            messagebox.showwarning("Campos Vazios", "Por favor, preencha todos os campos.")
+            messagebox.showwarning("Erro", "CPF ou Senha inválidos.")
 
-    def cadastrar(self):
-        self.controlador.iniciar_cadastro_passageiro()  # Chama o controlador para abrir a tela de cadastro
-
-    def sair(self):
-        self.janela.destroy()
-
-    def mostrar(self):
+    def iniciar(self):
+        self.janela.deiconify()  # Mostra a janela
         self.janela.mainloop()

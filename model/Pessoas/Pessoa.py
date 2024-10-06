@@ -15,7 +15,7 @@ class Pessoa(ABC):
     @cod.setter
     def cod(self, novo_cod):
         if isinstance(novo_cod, str):
-            self.__nome = novo_cod
+            self.__cod = novo_cod
 
     @property
     def nome(self):
