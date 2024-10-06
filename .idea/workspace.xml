@@ -4,23 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aa6ee010-62f6-4a22-9333-170215d0159f" name="Changes" comment="Cadastro Passageiro OK&#10;&quot;Cadastro&quot; Admin Ok&#10;Login Ok">
-      <change afterPath="$PROJECT_DIR$/controller/ControladorFuncionario.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dao/DAOFuncionario.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/view/ViewAlterarFuncionario.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/view/ViewAlterarPassageiro.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/view/ViewCadastroFuncinario.py" afterDir="false" />
+    <list default="true" id="aa6ee010-62f6-4a22-9333-170215d0159f" name="Changes" comment="Atualização do Cadastro do Passageiro OK">
+      <change afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/ControladorPassageiro.py" beforeDir="false" afterPath="$PROJECT_DIR$/controller/ControladorPassageiro.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/ControladorSistema.py" beforeDir="false" afterPath="$PROJECT_DIR$/controller/ControladorSistema.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dao/DAOPassageiro.py" beforeDir="false" afterPath="$PROJECT_DIR$/dao/DAOPassageiro.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/Pessoas/Aeromocas.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/Pessoas/Aeromocas.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/Pessoas/Funcionarios.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/Pessoas/Funcionarios.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/Pessoas/Passageiros.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/Pessoas/Passageiros.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/Pessoas/Pessoas.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/Pessoas/Pessoas.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/Pessoas/Pilotos.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/Pessoas/Pilotos.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/ViewLogin.py" beforeDir="false" afterPath="$PROJECT_DIR$/view/ViewLogin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/ViewPassageiro.py" beforeDir="false" afterPath="$PROJECT_DIR$/view/ViewPassageiro.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/ControladorFuncionario.py" beforeDir="false" afterPath="$PROJECT_DIR$/controller/ControladorFuncionario.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dao/DAOFuncionario.py" beforeDir="false" afterPath="$PROJECT_DIR$/dao/DAOFuncionario.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/ViewAdmin.py" beforeDir="false" afterPath="$PROJECT_DIR$/view/ViewAdmin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/ViewCadastroFuncinario.py" beforeDir="false" afterPath="$PROJECT_DIR$/view/ViewCadastroFuncionario.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/ViewFuncionários.py" beforeDir="false" afterPath="$PROJECT_DIR$/view/ViewFuncionarios.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -178,7 +169,15 @@
       <option name="project" value="LOCAL" />
       <updated>1728205719133</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Atualização do Cadastro do Passageiro OK">
+      <option name="closed" value="true" />
+      <created>1728248787257</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1728248787257</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -225,6 +224,7 @@
     <MESSAGE value="Adição da configuração do MongoDB." />
     <MESSAGE value="Adicionando o dotenv para armazenar ocultar informações sigilosas" />
     <MESSAGE value="Cadastro Passageiro OK&#10;&quot;Cadastro&quot; Admin Ok&#10;Login Ok" />
-    <option name="LAST_COMMIT_MESSAGE" value="Cadastro Passageiro OK&#10;&quot;Cadastro&quot; Admin Ok&#10;Login Ok" />
+    <MESSAGE value="Atualização do Cadastro do Passageiro OK" />
+    <option name="LAST_COMMIT_MESSAGE" value="Atualização do Cadastro do Passageiro OK" />
   </component>
 </project>

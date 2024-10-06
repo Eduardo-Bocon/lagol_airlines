@@ -25,3 +25,6 @@ class ControladorFuncionario:
             return True, "Cadastro realizado com sucesso!"
         else:
             return False, "Erro ao cadastrar funcionário. Tente novamente."
+
+    def buscar_todos_funcionarios(self):
+        return self.__dao.buscar_todos()
