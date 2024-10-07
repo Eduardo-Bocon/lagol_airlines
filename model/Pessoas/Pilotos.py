@@ -1,3 +1,4 @@
+
 from model.Pessoas.Funcionarios import Funcionario
 
 class Piloto(Funcionario):
@@ -23,3 +24,4 @@ class Piloto(Funcionario):
             "lotacao": self.__lotacao
         })
         return funcionario_dict
+

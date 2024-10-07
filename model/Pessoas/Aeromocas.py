@@ -1,3 +1,4 @@
+
 from model.Pessoas.Funcionarios import Funcionario
 
 class Aeromoca(Funcionario):
@@ -23,3 +24,4 @@ class Aeromoca(Funcionario):
             "lotacao": self.__lotacao
         })
         return funcionario_dict
+

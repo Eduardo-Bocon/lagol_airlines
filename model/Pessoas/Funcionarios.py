@@ -1,3 +1,13 @@
+
+from model.Pessoas.Pessoas import Pessoa  
+
+class Funcionarios(Pessoa):
+    
+    def __init__(self, cod: str, nome: str, cpf: str, cargo:str, lotacao:list):
+        super().__init__(cod, nome, cpf)
+        self.__cargo = cargo
+        self.__lotacao = lotacao
+=======
 from model.Pessoas.Pessoas import Pessoas
 
 class Funcionario(Pessoas):
@@ -6,17 +16,28 @@ class Funcionario(Pessoas):
         self.__cargo = cargo
         self.__lotacao = []  # Inicializa uma lista vazia para armazenar os voos
 
+
     @property
     def cargo(self):
         return self.__cargo
 
+    
     @cargo.setter
-    def cargo(self, novo_cargo):
-        self.__cargo = novo_cargo
+    def cargo(self, nova_cargo):
+        if isinstance(nova_cargo, str):
+            self.__cargo = nova_cargo
+
 
     @property
     def lotacao(self):
         return self.__lotacao
+
+    
+    @lotacao.setter
+    def lotacao(self, nova_lotacao):
+        if isinstance(nova_lotacao, str):
+            self.__lotacao = nova_lotacao
+
 
     def adicionar_voo(self, voo):
         if voo not in self.__lotacao:
@@ -33,3 +54,4 @@ class Funcionario(Pessoas):
             "lotacao": self.__lotacao
         })
         return pessoa_dict
+
