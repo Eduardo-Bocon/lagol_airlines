@@ -1,23 +1,26 @@
+from controller.ControladorPassageiro import ControladorPassageiro
+from controller.ControladorAdminLogin import ControladorAdminLogin
+from controller.ControladorFuncionario import ControladorFuncionario
 from view.ViewLogin import TelaLogin
-from view.ViewCadastroPassageiro import TelaCadastroPassageiro
 
 class ControladorSistema:
     def __init__(self):
-        self.janela_login = TelaLogin(self)  # Passa a referência do controlador
-        self.janela_cadastro_passageiro = None  # Inicialmente sem a tela de cadastro
+        self.__controlador_passageiro = ControladorPassageiro()
+        self.__controlador_admin_login = ControladorAdminLogin()
+        self.__controlador_funcionario = ControladorFuncionario()
 
-    def inicializa_sistema(self):
-        self.janela_login.mostrar()  # Mostra a tela de login
+    @property
+    def controlador_passageiro(self):
+        return self.__controlador_passageiro
 
-    def abrir_cadastro(self):
-        self.janela_login.janela.withdraw()  # Oculta a tela de login
-        self.janela_cadastro_passageiro = TelaCadastroPassageiro(self)  # Cria a tela de cadastro
-        self.janela_cadastro_passageiro.iniciar()  # Inicia a tela de cadastro
+    @property
+    def controlador_admin_login(self):
+        return self.__controlador_admin_login
 
-    def cadastrar_passageiro(self, nome, idade, documento):
-        # Aqui você pode adicionar a lógica para cadastrar o passageiro
-        print(f"Passageiro cadastrado: Nome: {nome}, Idade: {idade}, Documento: {documento}")
+    @property
+    def controlador_funcionario(self):
+        return self.__controlador_funcionario
 
-    def retornar_login(self):
-        # Não é necessário, pois agora estamos chamando diretamente em `voltar()`.
-        pass
+    def iniciar(self):
+        app = TelaLogin(self)
+        app.mainloop()

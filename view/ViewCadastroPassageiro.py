@@ -1,48 +1,64 @@
 import tkinter as tk
+from tkcalendar import DateEntry
 from tkinter import messagebox
 
-class TelaCadastroPassageiro:
+class TelaCadastroPassageiro(tk.Toplevel):
     def __init__(self, controlador):
+        super().__init__()
         self.controlador = controlador
-        self.janela = tk.Tk()
-        self.janela.title("Cadastro de Passageiro")
+        self.title("Tela de Cadastro")
+        self.geometry("800x600")
+        self.configure(bg="#f0f4f7")  # Cor de fundo suave
 
-        tk.Label(self.janela, text="Nome:").grid(row=0, column=0)
-        self.entry_nome = tk.Entry(self.janela)
-        self.entry_nome.grid(row=0, column=1)
+        # Container para centralizar os elementos
+        self.container = tk.Frame(self, bg="#f0f4f7")
+        self.container.pack(expand=True, padx=20, pady=20)
 
-        tk.Label(self.janela, text="Idade:").grid(row=1, column=0)
-        self.entry_idade = tk.Entry(self.janela)
-        self.entry_idade.grid(row=1, column=1)
+        # Nome
+        self.nome_label = tk.Label(self.container, text="Nome:", font=("Arial", 12), bg="#f0f4f7", fg="#333333")
+        self.nome_label.grid(row=0, column=0, sticky="w", pady=10)
+        self.nome_entry = tk.Entry(self.container, width=50, bg="#ffffff", fg="#333333", borderwidth=2)
+        self.nome_entry.grid(row=0, column=1, pady=10, ipadx=10)
 
-        tk.Label(self.janela, text="Documento:").grid(row=2, column=0)
-        self.entry_documento = tk.Entry(self.janela)
-        self.entry_documento.grid(row=2, column=1)
+        # CPF
+        self.cpf_label = tk.Label(self.container, text="CPF:", font=("Arial", 12), bg="#f0f4f7", fg="#333333")
+        self.cpf_label.grid(row=1, column=0, sticky="w", pady=10)
+        self.cpf_entry = tk.Entry(self.container, width=50, bg="#ffffff", fg="#333333", borderwidth=2)
+        self.cpf_entry.grid(row=1, column=1, pady=10, ipadx=10)
 
-        self.botao_cadastrar = tk.Button(self.janela, text="Cadastrar", command=self.cadastrar)
-        self.botao_cadastrar.grid(row=3, columnspan=2)
+        # Data de Nascimento (com input maior)
+        self.data_nasc_label = tk.Label(self.container, text="Data de Nascimento:", font=("Arial", 12), bg="#f0f4f7", fg="#333333")
+        self.data_nasc_label.grid(row=2, column=0, sticky="w", pady=10)
+        self.data_nasc_entry = DateEntry(self.container, width=50, background='darkblue', foreground='white', borderwidth=2, year=2000)
+        self.data_nasc_entry.grid(row=2, column=1, pady=10, ipadx=10)
 
-        self.botao_voltar = tk.Button(self.janela, text="Voltar", command=self.voltar)
-        self.botao_voltar.grid(row=4, columnspan=2)
+        # Senha
+        self.senha_label = tk.Label(self.container, text="Senha:", font=("Arial", 12), bg="#f0f4f7", fg="#333333")
+        self.senha_label.grid(row=3, column=0, sticky="w", pady=10)
+        self.senha_entry = tk.Entry(self.container, show="*", width=50, bg="#ffffff", fg="#333333", borderwidth=2)
+        self.senha_entry.grid(row=3, column=1, pady=10, ipadx=10)
+
+        # Confirmar Senha
+        self.confirmar_senha_label = tk.Label(self.container, text="Confirmar Senha:", font=("Arial", 12), bg="#f0f4f7", fg="#333333")
+        self.confirmar_senha_label.grid(row=4, column=0, sticky="w", pady=10)
+        self.confirmar_senha_entry = tk.Entry(self.container, show="*", width=50, bg="#ffffff", fg="#333333", borderwidth=2)
+        self.confirmar_senha_entry.grid(row=4, column=1, pady=10, ipadx=10)
+
+        # Botão Cadastrar
+        self.cadastrar_button = tk.Button(self.container, text="Cadastrar", font=("Arial", 12, "bold"), bg="#4CAF50", fg="white", activebackground="#45a049", activeforeground="white", command=self.cadastrar)
+        self.cadastrar_button.grid(row=5, columnspan=2, pady=20, ipadx=20, ipady=5)
 
     def cadastrar(self):
-        nome = self.entry_nome.get()
-        idade = self.entry_idade.get()
-        documento = self.entry_documento.get()
+        nome = self.nome_entry.get()
+        cpf = self.cpf_entry.get()
+        data_nasc = self.data_nasc_entry.get_date()
+        senha = self.senha_entry.get()
+        confirmar_senha = self.confirmar_senha_entry.get()
 
-        if not nome or not idade or not documento:
-            messagebox.showwarning("Campos Vazios", "Por favor, preencha todos os campos.")
-            return
+        sucesso, mensagem = self.controlador.controlador_passageiro.cadastrar_passageiro(nome, cpf, data_nasc, senha, confirmar_senha)
 
-        self.controlador.cadastrar_passageiro(nome, idade, documento)
-        messagebox.showinfo("Cadastro", "Passageiro cadastrado com sucesso!")
-        self.entry_nome.delete(0, tk.END)
-        self.entry_idade.delete(0, tk.END)
-        self.entry_documento.delete(0, tk.END)
-
-    def voltar(self):
-        self.janela.destroy()  # Fecha a tela de cadastro
-        self.controlador.janela_login.janela.deiconify()  # Mostra a tela de login novamente
-
-    def iniciar(self):
-        self.janela.mainloop()
+        if sucesso:
+            messagebox.showinfo("Sucesso", mensagem)
+            self.destroy()
+        else:
+            messagebox.showerror("Erro", mensagem)

@@ -1,7 +1,7 @@
-from model import Aeronave
+from model import Aeronaves
 import datetime
 
-from model.Pessoas import Aeromoca, Piloto
+from model.Pessoas import Aeromocas, Pilotos
 
 class Voo:
 
