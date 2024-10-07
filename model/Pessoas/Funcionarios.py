@@ -1,13 +1,3 @@
-
-from model.Pessoas.Pessoas import Pessoa  
-
-class Funcionarios(Pessoa):
-    
-    def __init__(self, cod: str, nome: str, cpf: str, cargo:str, lotacao:list):
-        super().__init__(cod, nome, cpf)
-        self.__cargo = cargo
-        self.__lotacao = lotacao
-=======
 from model.Pessoas.Pessoas import Pessoas
 
 class Funcionario(Pessoas):

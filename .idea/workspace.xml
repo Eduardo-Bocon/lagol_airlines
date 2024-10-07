@@ -5,13 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aa6ee010-62f6-4a22-9333-170215d0159f" name="Changes" comment="Atualização do Cadastro do Passageiro OK">
-      <change afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/ControladorFuncionario.py" beforeDir="false" afterPath="$PROJECT_DIR$/controller/ControladorFuncionario.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dao/DAOFuncionario.py" beforeDir="false" afterPath="$PROJECT_DIR$/dao/DAOFuncionario.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/ViewAdmin.py" beforeDir="false" afterPath="$PROJECT_DIR$/view/ViewAdmin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/ViewCadastroFuncinario.py" beforeDir="false" afterPath="$PROJECT_DIR$/view/ViewCadastroFuncionario.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/ViewFuncionários.py" beforeDir="false" afterPath="$PROJECT_DIR$/view/ViewFuncionarios.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/@dd_@dm!n.py" beforeDir="false" afterPath="$PROJECT_DIR$/@dd_@dm!n.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/Pessoas/Funcionarios.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/Pessoas/Funcionarios.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,6 +77,7 @@
       <recent name="C:\Users\Danrley\PycharmProjects\lagol_airlines\model" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Danrley\Documents\GitHub\lagol_airlines\dao" />
       <recent name="C:\Users\Danrley\PycharmProjects\lagol_airlines\dao" />
     </key>
   </component>

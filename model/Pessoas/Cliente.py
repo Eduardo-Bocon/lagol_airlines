@@ -1,10 +1,10 @@
 from datetime import date
-from model.Pessoas.Pessoas import Pessoa  # Importando a classe Pessoa
+from model.Pessoas.Pessoas import Pessoas  # Importando a classe Pessoa
 
-class Cliente(Pessoa):
+class Cliente(Pessoas):
     
     def __init__(self, cod: str, nome: str, cpf: str, senha: str, data_nascimento: date):
-        super().__init__(cod, nome, cpf)  # Chama o construtor da classe base Pessoa
+        super().__init__(cod, nome, cpf)
         self.__senha = senha
         self.__data_nascimento = data_nascimento
 
