@@ -16,7 +16,7 @@ class TelaCadastroFuncionario(tk.Tk):
         self.cpf_entry = tk.Entry(self)
         self.cpf_entry.pack()
 
-        tk.Label(self, text="Cargo:").pack()
+        tk.Label(self, text="Cargo:").pack(side=tk.LEFT)
         self.cargo_var = tk.StringVar(value="Piloto")  # Valor padrão
 
         # Colocando os Radiobuttons lado a lado
@@ -27,7 +27,10 @@ class TelaCadastroFuncionario(tk.Tk):
         self.aeromoça_radio.pack(side=tk.LEFT)
 
         self.cadastrar_button = tk.Button(self, text="Cadastrar", command=self.cadastrar_funcionario)
-        self.cadastrar_button.pack(pady=20)
+        self.cadastrar_button.pack(pady=(20, 10))
+
+        self.cadastrar_button = tk.Button(self, text="Cancelar", command=self.retornar_tela_funcionario)
+        self.cadastrar_button.pack(pady=(20, 10))
 
     def cadastrar_funcionario(self):
         nome = self.nome_entry.get()
@@ -43,4 +46,9 @@ class TelaCadastroFuncionario(tk.Tk):
             TelaFuncionarios(self.controlador)
         else:
             tk.messagebox.showerror("Erro", mensagem)
+
+    def retornar_tela_funcionario(self):
+        self.destroy()
+        from view.ViewFuncionarios import TelaFuncionarios
+        TelaFuncionarios(self.controlador)
 

@@ -36,6 +36,7 @@ class TelaAdmin(tk.Tk):
         self.destroy()
         from view.ViewFuncionarios import TelaFuncionarios
         TelaFuncionarios(self.controlador)
+
     def gerenciar_avioes(self): #Adicionar redirecionamento aqui
         pass
     def gerenciar_voos(self): #Adicionar redirecionamento aqui

@@ -34,3 +34,10 @@ class DAOFuncionario(DAO):
                 cargo=funcionario_dict['cargo']
             ))
         return funcionarios
+
+    def atualizar(self, funcionario):
+        cpf = funcionario.cpf
+        if cpf in self.__collection:
+            self.__collection['cpf'] = funcionario
+            return True
+        return False

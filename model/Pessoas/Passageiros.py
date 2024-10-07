@@ -1,14 +1,12 @@
 from model.Pessoas.Pessoas import Pessoas
-from datetime import date, datetime
+from datetime import date
 
 
 class Passageiro(Pessoas):
-    def __init__(self, nome, cpf, data_nascimento, senha):
+    def __init__(self, nome, cpf, data_nascimento:date, senha):
         super().__init__(nome, cpf)
-        self.__data_nascimento = None
-        self.__senha = None
-        self.data_nascimento = data_nascimento
-        self.senha = senha
+        self.__data_nascimento = data_nascimento
+        self.__senha = senha
 
     @property
     def data_nascimento(self):
@@ -16,7 +14,7 @@ class Passageiro(Pessoas):
 
     @data_nascimento.setter
     def data_nascimento(self, nova_data):
-        if isinstance(nova_data, datetime):
+        if isinstance(nova_data, date):
             self.__data_nascimento = nova_data
 
     @property

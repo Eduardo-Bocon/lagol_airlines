@@ -15,7 +15,7 @@ class TelaAlterarPassageiro(tk.Tk):
 
         self.data_nasc_label = tk.Label(self, text="Data de Nascimento:")
         self.data_nasc_label.pack()
-        self.data_nasc_entry = DateEntry(self, width=12, background='darkblue', foreground='white', borderwidth=2)
+        self.data_nasc_entry = DateEntry(self, date_pattern='dd/mm/yyyy', width=12, background='darkblue', foreground='white', borderwidth=2)
         self.data_nasc_entry.pack()
 
         tk.Label(self, text="Nova Senha (opcional):").pack()
@@ -27,6 +27,9 @@ class TelaAlterarPassageiro(tk.Tk):
         self.confirma_nova_senha_entry.pack()
 
         self.salvar_button = tk.Button(self, text="Salvar Alterações", command=self.alterar_passageiro)
+        self.salvar_button.pack(pady=20)
+
+        self.salvar_button = tk.Button(self, text="Cancelar", command=self.retornar_passageiro)
         self.salvar_button.pack(pady=20)
 
     def alterar_passageiro(self):
@@ -44,3 +47,8 @@ class TelaAlterarPassageiro(tk.Tk):
             TelaPassageiro(self.controlador)
         else:
             tk.messagebox.showerror("Erro", mensagem)
+
+    def retornar_passageiro(self):
+        self.destroy()
+        from view.ViewPassageiro import TelaPassageiro
+        TelaPassageiro(self.controlador)

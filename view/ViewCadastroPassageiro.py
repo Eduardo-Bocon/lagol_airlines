@@ -29,7 +29,7 @@ class TelaCadastroPassageiro(tk.Toplevel):
         # Data de Nascimento (com input maior)
         self.data_nasc_label = tk.Label(self.container, text="Data de Nascimento:", font=("Arial", 12), bg="#f0f4f7", fg="#333333")
         self.data_nasc_label.grid(row=2, column=0, sticky="w", pady=10)
-        self.data_nasc_entry = DateEntry(self.container, width=50, background='darkblue', foreground='white', borderwidth=2, year=2000)
+        self.data_nasc_entry = DateEntry(self.container, date_pattern='dd/mm/yyyy', width=50, background='darkblue', foreground='white', borderwidth=2, year=2000)
         self.data_nasc_entry.grid(row=2, column=1, pady=10, ipadx=10)
 
         # Senha
@@ -51,7 +51,7 @@ class TelaCadastroPassageiro(tk.Toplevel):
     def cadastrar(self):
         nome = self.nome_entry.get()
         cpf = self.cpf_entry.get()
-        data_nasc = self.data_nasc_entry.get_date()
+        data_nasc = self.data_nasc_entry.get()
         senha = self.senha_entry.get()
         confirmar_senha = self.confirmar_senha_entry.get()
 

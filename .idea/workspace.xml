@@ -4,10 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aa6ee010-62f6-4a22-9333-170215d0159f" name="Changes" comment="Atualização do Cadastro do Passageiro OK">
+    <list default="true" id="aa6ee010-62f6-4a22-9333-170215d0159f" name="Changes" comment="Correção do @dd_@dm!n.py">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/@dd_@dm!n.py" beforeDir="false" afterPath="$PROJECT_DIR$/@dd_@dm!n.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/Pessoas/Funcionarios.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/Pessoas/Funcionarios.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/ControladorAdminLogin.py" beforeDir="false" afterPath="$PROJECT_DIR$/controller/ControladorAdminLogin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/ControladorFuncionario.py" beforeDir="false" afterPath="$PROJECT_DIR$/controller/ControladorFuncionario.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/ControladorPassageiro.py" beforeDir="false" afterPath="$PROJECT_DIR$/controller/ControladorPassageiro.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dao/DAOFuncionario.py" beforeDir="false" afterPath="$PROJECT_DIR$/dao/DAOFuncionario.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/Pessoas/Passageiros.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/Pessoas/Passageiros.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/ViewAdmin.py" beforeDir="false" afterPath="$PROJECT_DIR$/view/ViewAdmin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/ViewAlterarFuncionario.py" beforeDir="false" afterPath="$PROJECT_DIR$/view/ViewAlterarFuncionario.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/ViewAlterarPassageiro.py" beforeDir="false" afterPath="$PROJECT_DIR$/view/ViewAlterarPassageiro.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/ViewCadastroFuncionario.py" beforeDir="false" afterPath="$PROJECT_DIR$/view/ViewCadastroFuncionario.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/ViewCadastroPassageiro.py" beforeDir="false" afterPath="$PROJECT_DIR$/view/ViewCadastroPassageiro.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/ViewFuncionarios.py" beforeDir="false" afterPath="$PROJECT_DIR$/view/ViewFuncionarios.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,10 +35,18 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
-  &quot;lastFilter&quot;: {
-    &quot;state&quot;: &quot;OPEN&quot;,
-    &quot;assignee&quot;: &quot;danrleymory1&quot;
-  }
+  &quot;lastFilter&quot;: {}
+}</component>
+  <component name="GitHubPullRequestState">{
+  &quot;prStates&quot;: [
+    {
+      &quot;id&quot;: {
+        &quot;id&quot;: &quot;PR_kwDOM4Rw6c59v0TN&quot;,
+        &quot;number&quot;: 3
+      },
+      &quot;lastSeen&quot;: 1728264885982
+    }
+  ]
 }</component>
   <component name="GithubDefaultAccount">
     <option name="defaultAccountId" value="d2a03a69-0a02-4aa1-97fb-883d5bff5331" />
@@ -174,7 +191,15 @@
       <option name="project" value="LOCAL" />
       <updated>1728248787257</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Correção do @dd_@dm!n.py">
+      <option name="closed" value="true" />
+      <created>1728262592058</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1728262592058</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -222,6 +247,17 @@
     <MESSAGE value="Adicionando o dotenv para armazenar ocultar informações sigilosas" />
     <MESSAGE value="Cadastro Passageiro OK&#10;&quot;Cadastro&quot; Admin Ok&#10;Login Ok" />
     <MESSAGE value="Atualização do Cadastro do Passageiro OK" />
-    <option name="LAST_COMMIT_MESSAGE" value="Atualização do Cadastro do Passageiro OK" />
+    <MESSAGE value="Correção do @dd_@dm!n.py" />
+    <option name="LAST_COMMIT_MESSAGE" value="Correção do @dd_@dm!n.py" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/model/Pessoas/Cliente.py</url>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

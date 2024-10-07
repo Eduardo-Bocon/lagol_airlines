@@ -2,6 +2,8 @@ from model.Pessoas.Passageiros import Passageiro
 from dao.DAOPassageiro import DAOPassageiro
 from validate_docbr import CPF
 import bcrypt
+from datetime import datetime
+
 
 class ControladorPassageiro:
     def __init__(self):
@@ -11,16 +13,31 @@ class ControladorPassageiro:
     def set_passageiro_logado(self, passageiro):
         self.passageiro_logado = passageiro
 
+    def calcular_idade(self, data_nasc_str):
+        data_nasc = datetime.strptime(data_nasc_str, "%d/%m/%Y")
+        hoje = datetime.today()
+        idade = hoje.year - data_nasc.year - ((hoje.month, hoje.day) < (data_nasc.month, data_nasc.day))
+        return idade
+
     def cadastrar_passageiro(self, nome, cpf, data_nasc, senha, confirmar_senha):
         cpf_objeto = CPF()
+
         if not cpf_objeto.validate(cpf):
             raise ValueError("CPF Inválido")
+
+        idade = self.calcular_idade(data_nasc)
+        if idade < 18:
+            return False, "Somente maiores de 18 anos podem se cadastrar."
+
         if senha != confirmar_senha:
             return False, "As senhas não coincidem."
+
         if self.__dao.buscar_por_cpf(cpf):
             return False, "Passageiro com esse CPF já cadastrado."
+
         hashed_senha = bcrypt.hashpw(senha.encode('utf-8'), bcrypt.gensalt())
         passageiro = Passageiro(nome=nome, cpf=cpf, data_nascimento=data_nasc, senha=hashed_senha)
+
         if self.__dao.adicionar(passageiro):
             return True, "Cadastro realizado com sucesso!"
         else:
@@ -41,8 +58,13 @@ class ControladorPassageiro:
 
         if novo_nome:
             self.passageiro_logado.nome = novo_nome
+
         if nova_data_nasc:
+            idade = self.calcular_idade(nova_data_nasc)
+            if idade < 18:
+                return False, "Somente maiores de 18 anos podem alterar a data de nascimento para essa nova data."
             self.passageiro_logado.data_nascimento = nova_data_nasc
+
         if nova_senha:
             if nova_senha != confirmar_senha:
                 return False, "As senhas não coincidem."
@@ -50,5 +72,5 @@ class ControladorPassageiro:
 
         if self.__dao.atualizar(self.passageiro_logado):
             return True, "Dados alterados com sucesso!"
-
-        return False, "Erro ao alterar dados. Tente novamente."
+        else:
+            return False, "Erro ao alterar dados. Tente novamente."

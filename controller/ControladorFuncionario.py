@@ -28,3 +28,16 @@ class ControladorFuncionario:
 
     def buscar_todos_funcionarios(self):
         return self.__dao.buscar_todos()
+
+    def buscar_funcionario_por_cpf(self, cpf):
+        return self.__dao.buscar_por_cpf(cpf)
+
+    def alterar_funcionario(self, cpf, novo_nome):
+        funcionario = self.__dao.buscar_por_cpf(cpf)
+        if not funcionario:
+            return False, "Funcionário não encontrado."
+
+        funcionario.nome = novo_nome
+        if self.__dao.atualizar(funcionario):
+            return True, "Nome do funcionário alterado com sucesso!"
+        return False, "Erro ao alterar o nome do funcionário."
