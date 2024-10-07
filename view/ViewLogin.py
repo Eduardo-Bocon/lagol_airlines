@@ -1,4 +1,4 @@
-from view.ViewCadastroPassageiro import TelaCadastro
+from view.ViewCadastroPassageiro import TelaCadastroPassageiro
 import tkinter as tk
 from tkinter import messagebox
 
@@ -43,7 +43,7 @@ class TelaLogin(tk.Tk):
             messagebox.showerror("Erro", mensagem)
 
     def abrir_cadastro(self):
-        TelaCadastro(self.controlador)
+        TelaCadastroPassageiro(self.controlador)
 
     def abrir_login_admin(self):
         from view.ViewAdminLogin import TelaLoginAdmin
