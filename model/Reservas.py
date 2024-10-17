@@ -2,7 +2,7 @@ from model import Voos
 from model.Pessoas import Clientes
 
 
-class Reserva:
+class Reservas:
 
     def __init__(self, cod:str, numero_reserva:str, passageiro:Passageiro, voo:Voo, assento:str, quant_bagagem:int):
 

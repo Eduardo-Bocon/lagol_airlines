@@ -1,6 +1,6 @@
 from Pessoas import Pessoas
 
-class Admin(Pessoas):
+class Admins(Pessoas):
     def __init__(self, nome, cpf, senha, is_admin):
         super().__init__(nome, cpf)
         self.__senha = None
