@@ -1,7 +1,7 @@
 
-from model.Pessoas.Funcionarios import Funcionario
+from model.Pessoas.Funcionarios import Funcionarios
 
-class Piloto(Funcionario):
+class Pilotos(Funcionarios):
     def __init__(self, nome, cpf):
         super().__init__(nome, cpf, "Piloto")
         self.__lotacao = []

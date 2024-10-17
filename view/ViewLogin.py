@@ -1,52 +1,57 @@
-from view.ViewCadastroPassageiro import TelaCadastroPassageiro
-import tkinter as tk
-from tkinter import messagebox
+import PySimpleGUI as Sg
+from view.ViewCadastroCliente import TelaCadastroCliente
 
-class TelaLogin(tk.Tk):
+
+class TelaLogin:
     def __init__(self, controlador):
-        super().__init__()
         self.controlador = controlador
+        self.janela = None
+        self.criar_janela()
 
-        self.title("Tela de Login")
-        self.geometry("800x600")
+    def criar_janela(self):
+        # Layout da tela de login
+        layout = [
+            [Sg.Push(), Sg.Button('Login Admin', key='admin_login', size=(10, 1))],
+            [Sg.Push(), Sg.Text('CPF:', size=(10, 1)), Sg.Input(key='cpf'), Sg.Push()],
+            [Sg.Push(), Sg.Text('Senha:', size=(10, 1)), Sg.Input(key='senha', password_char='*'), Sg.Push()],
+            [Sg.Push(), Sg.Button('Login', size=(10, 1)), Sg.Push()],
+            [Sg.Push(), Sg.Button('Cadastrar', size=(10, 1)), Sg.Push()]
+        ]
 
-        self.cpf_label = tk.Label(self, text="CPF:")
-        self.cpf_label.pack(pady=(20, 0))  # Adiciona espaço acima
-        self.cpf_entry = tk.Entry(self)
-        self.cpf_entry.pack(pady=(0, 10))  # Adiciona espaço abaixo
+        # Cria a janela
+        self.janela = Sg.Window('Tela de Login', layout, size=(600, 500))
 
-        self.senha_label = tk.Label(self, text="Senha:")
-        self.senha_label.pack(pady=(20, 0))
-        self.senha_entry = tk.Entry(self, show="*")
-        self.senha_entry.pack(pady=(0, 10))
+    def abrir(self):
+        # Loop de eventos da interface
+        while True:
+            evento, valores = self.janela.read()
 
-        self.login_button = tk.Button(self, text="Login", command=self.login)
-        self.login_button.pack(pady=(10, 5))
+            if evento == Sg.WINDOW_CLOSED:
+                break
+            elif evento == 'Login':
+                self.login(valores['cpf'], valores['senha'])
+            elif evento == 'Cadastrar':
+                self.abrir_cadastro()
+            elif evento == 'admin_login':
+                self.abrir_login_admin()
 
-        self.cadastrar_button = tk.Button(self, text="Cadastrar", command=self.abrir_cadastro)
-        self.cadastrar_button.pack()
+        self.janela.close()
 
-        # Botão para ir para a tela de login do admin
-        self.admin_login_button = tk.Button(self, text="Login Admin", command=self.abrir_login_admin)
-        self.admin_login_button.pack(side=tk.TOP, anchor='ne', padx=10, pady=10)
-
-    def login(self):
-        cpf = self.cpf_entry.get()
-        senha = self.senha_entry.get()
-        sucesso, mensagem = self.controlador.controlador_passageiro.validar_login(cpf, senha)
+    def login(self, cpf, senha):
+        sucesso, mensagem = self.controlador.controlador_cliente.validar_login(cpf, senha)
         if sucesso:
-            messagebox.showinfo("Sucesso", mensagem)
-            self.destroy()
-            from view.ViewPassageiro import TelaPassageiro
-            TelaPassageiro(self.controlador)
+            Sg.popup("Sucesso", mensagem)
+            self.janela.close()
+            from view.ViewCliente import TelaCliente
+            TelaCliente(self.controlador).abrir()
         else:
-            messagebox.showerror("Erro", mensagem)
+            Sg.popup_error("Erro", mensagem)
 
     def abrir_cadastro(self):
-        TelaCadastroPassageiro(self.controlador)
+        self.janela.close()
+        TelaCadastroCliente(self.controlador).abrir()
 
     def abrir_login_admin(self):
         from view.ViewAdminLogin import TelaLoginAdmin
-        self.destroy()
-        TelaLoginAdmin(self.controlador)
-
+        self.janela.close()
+        TelaLoginAdmin(self.controlador).abrir()

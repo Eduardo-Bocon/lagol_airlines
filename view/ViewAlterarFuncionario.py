@@ -1,37 +1,49 @@
-import tkinter as tk
-from tkinter import messagebox
+import PySimpleGUI as Sg
 
-class TelaAlterarFuncionario(tk.Tk):
-    def __init__(self, controlador):
-        super().__init__()
+class TelaAlterarFuncionario:
+    def __init__(self, controlador, funcionario_cpf):
         self.controlador = controlador
-        self.title("Alterar Funcionário")
-        self.geometry("400x300")
+        self.funcionario_cpf = funcionario_cpf
+        self.janela = None
+        self.criar_janela()
 
-        tk.Label(self, text="Nome:").pack()
-        self.nome_entry = tk.Entry(self)
-        self.nome_entry.pack()
+    def criar_janela(self):
+        # Layout da tela de alteração
+        layout = [
+            [Sg.Text("Alterar Funcionário", font=("Arial", 14))],
+            [Sg.Push(), Sg.Text("Nome:"), Sg.Input(key='nome', size=(30, 1)), Sg.Push()],
+            [Sg.Push(), Sg.Button('Salvar Alterações', size=(15, 1)), Sg.Button('Cancelar', size=(10, 1)), Sg.Push()]
+        ]
 
-        self.salvar_button = tk.Button(self, text="Salvar Alterações", command=self.alterar_funcionario)
-        self.salvar_button.pack(pady=20)
+        # Cria a janela
+        self.janela = Sg.Window('Alterar Funcionário', layout, size=(400, 200))
 
-        self.salvar_button = tk.Button(self, text="Cancelar", command=self.retornar_funcionario)
-        self.salvar_button.pack(pady=20)
+    def abrir(self):
+        while True:
+            evento, valores = self.janela.read()
 
-    def alterar_funcionario(self):
-        nome = self.nome_entry.get()
+            if evento == Sg.WINDOW_CLOSED or evento == 'Cancelar':
+                self.retornar_funcionario()
+                break
+            elif evento == 'Salvar Alterações':
+                self.alterar_funcionario(valores)
 
-        sucesso, mensagem = self.controlador.controlador_funcionario.alterar_funcionario(self, nome)
+        self.janela.close()
+
+    def alterar_funcionario(self, valores):
+        nome = valores['nome']
+
+        sucesso, mensagem = self.controlador.controlador_funcionario.alterar_funcionario(self.funcionario_cpf, nome)
 
         if sucesso:
-            tk.messagebox.showinfo("Sucesso", mensagem)
-            self.destroy()
+            Sg.popup("Sucesso", mensagem)
+            self.janela.close()
             from view.ViewFuncionarios import TelaFuncionarios
-            TelaFuncionarios(self.controlador)
+            TelaFuncionarios(self.controlador).abrir()
         else:
-            tk.messagebox.showerror("Erro", mensagem)
+            Sg.popup_error("Erro", mensagem)
 
     def retornar_funcionario(self):
-        self.destroy()
+        self.janela.close()
         from view.ViewFuncionarios import TelaFuncionarios
-        TelaFuncionarios(self.controlador)
+        TelaFuncionarios(self.controlador).abrir()

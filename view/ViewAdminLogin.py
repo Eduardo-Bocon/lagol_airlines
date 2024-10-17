@@ -1,46 +1,52 @@
-import tkinter as tk
-from tkinter import messagebox
+import PySimpleGUI as Sg
 
-class TelaLoginAdmin(tk.Tk):
+class TelaLoginAdmin:
     def __init__(self, controlador):
-        super().__init__()
         self.controlador = controlador
-        self.title("Tela de Login Admin")
-        self.geometry("800x600")
+        self.janela = None
+        self.criar_janela()
 
-        self.cpf_label = tk.Label(self, text="CPF Admin:")
-        self.cpf_label.pack(pady=(20, 0))  # Adiciona espaço acima
-        self.cpf_entry = tk.Entry(self)
-        self.cpf_entry.pack(pady=(0, 10))  # Adiciona espaço abaixo
+    def criar_janela(self):
+        # Layout da tela de login admin
+        layout = [
+            [Sg.Push(), Sg.Text('CPF Admin:', size=(15, 1)), Sg.Input(key='cpf_admin', size=(40, 1)), Sg.Push()],
+            [Sg.Push(), Sg.Text('Senha Admin:', size=(15, 1)), Sg.Input(key='senha_admin', password_char='*', size=(40, 1)), Sg.Push()],
+            [Sg.Push(), Sg.Button('Login', size=(15, 1)), Sg.Push()],
+            [Sg.Push(), Sg.Button('Voltar', size=(15, 1)), Sg.Push()]
+        ]
 
-        self.senha_label = tk.Label(self, text="Senha Admin:")
-        self.senha_label.pack(pady=(20, 0))  # Adiciona espaço acima
-        self.senha_entry = tk.Entry(self, show="*")
-        self.senha_entry.pack(pady=(0, 20))  # Adiciona espaço abaixo
+        # Cria a janela
+        self.janela = Sg.Window('Tela de Login Admin', layout, size=(600, 300))
 
-        self.login_button = tk.Button(self, text="Login", command=self.login)
-        self.login_button.pack(pady=(10, 5))  # Adiciona espaço abaixo
+    def abrir(self):
+        while True:
+            evento, valores = self.janela.read()
 
-        self.voltar_button = tk.Button(self, text="Voltar", command=self.voltar_para_login_passageiro)
-        self.voltar_button.pack(side=tk.TOP, anchor='nw', padx=10, pady=10)
+            if evento == Sg.WINDOW_CLOSED or evento == 'Voltar':
+                self.voltar_para_login_passageiro()
+                break
+            elif evento == 'Login':
+                self.login(valores)
 
-    def login(self):
-        cpf = self.cpf_entry.get()
-        senha = self.senha_entry.get()
+        self.janela.close()
+
+    def login(self, valores):
+        cpf = valores['cpf_admin']
+        senha = valores['senha_admin']
 
         sucesso, mensagem = self.controlador.controlador_admin_login.validar_login_admin(cpf, senha)
         if sucesso:
-            messagebox.showinfo("Sucesso", mensagem)
+            Sg.popup("Sucesso", mensagem)
             self.abrir_tela_principal_admin()
         else:
-            messagebox.showerror("Erro", mensagem)
+            Sg.popup_error("Erro", mensagem)
 
     def abrir_tela_principal_admin(self):
-        self.destroy()
+        self.janela.close()
         from view.ViewAdmin import TelaAdmin
-        TelaAdmin(self.controlador)
+        TelaAdmin(self.controlador).abrir()
 
     def voltar_para_login_passageiro(self):
-        self.destroy()
+        self.janela.close()
         from view.ViewLogin import TelaLogin
-        TelaLogin(self.controlador)
+        TelaLogin(self.controlador).abrir()

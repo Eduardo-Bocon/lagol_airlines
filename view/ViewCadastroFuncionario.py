@@ -1,54 +1,54 @@
-import tkinter as tk
-from tkinter import messagebox
+import PySimpleGUI as Sg
 
-class TelaCadastroFuncionario(tk.Tk):
+class TelaCadastroFuncionario:
     def __init__(self, controlador):
-        super().__init__()
         self.controlador = controlador
-        self.title("Cadastrar Funcionário")
-        self.geometry("400x300")
+        self.janela = None
+        self.criar_janela()
 
-        tk.Label(self, text="Nome:").pack()
-        self.nome_entry = tk.Entry(self)
-        self.nome_entry.pack()
+    def criar_janela(self):
+        layout = [
+            [Sg.Push(), Sg.Text("Cadastrar Funcionário", font=("Arial", 14)), Sg.Push()],
+            [Sg.Push(), Sg.Text("Nome:"), Sg.Input(key='nome', size=(30, 1)), Sg.Push()],
+            [Sg.Push(), Sg.Text("CPF:"), Sg.Input(key='cpf', size=(30, 1)), Sg.Push()],
+            [
+                Sg.Push(), Sg.Text("Cargo:") ,Sg.Radio('Piloto', "CARGO", key='Piloto', default=True),
+                Sg.Radio('Aeromoça', "CARGO", key='Aeromoca'), Sg.Push()
+            ],
+            [Sg.Push(), Sg.Button('Cadastrar', size=(10, 1)), Sg.Button('Cancelar', size=(10, 1)), Sg.Push()]
+        ]
 
-        tk.Label(self, text="CPF:").pack()
-        self.cpf_entry = tk.Entry(self)
-        self.cpf_entry.pack()
+        # Cria a janela
+        self.janela = Sg.Window('Cadastrar Funcionário', layout, size=(400, 300))
 
-        tk.Label(self, text="Cargo:").pack(side=tk.LEFT)
-        self.cargo_var = tk.StringVar(value="Piloto")  # Valor padrão
+    def abrir(self):
+        while True:
+            evento, valores = self.janela.read()
 
-        # Colocando os Radiobuttons lado a lado
-        self.piloto_radio = tk.Radiobutton(self, text="Piloto", variable=self.cargo_var, value="Piloto")
-        self.piloto_radio.pack(side=tk.LEFT)
+            if evento == Sg.WINDOW_CLOSED or evento == 'Cancelar':
+                self.retornar_tela_funcionario()
+                break
+            elif evento == 'Cadastrar':
+                self.cadastrar_funcionario(valores)
 
-        self.aeromoça_radio = tk.Radiobutton(self, text="Aeromoça", variable=self.cargo_var, value="Aeromoça")
-        self.aeromoça_radio.pack(side=tk.LEFT)
+        self.janela.close()
 
-        self.cadastrar_button = tk.Button(self, text="Cadastrar", command=self.cadastrar_funcionario)
-        self.cadastrar_button.pack(pady=(20, 10))
-
-        self.cadastrar_button = tk.Button(self, text="Cancelar", command=self.retornar_tela_funcionario)
-        self.cadastrar_button.pack(pady=(20, 10))
-
-    def cadastrar_funcionario(self):
-        nome = self.nome_entry.get()
-        cpf = self.cpf_entry.get()
-        cargo = self.cargo_var.get()  # Obter o valor do cargo selecionado
+    def cadastrar_funcionario(self, valores):
+        nome = valores['nome']
+        cpf = valores['cpf']
+        cargo = 'Piloto' if valores['Piloto'] else 'Aeromoca'
 
         sucesso, mensagem = self.controlador.controlador_funcionario.cadastrar_funcionario(nome, cpf, cargo)
 
         if sucesso:
-            tk.messagebox.showinfo("Sucesso", mensagem)
-            self.destroy()
+            Sg.popup("Sucesso", mensagem)
+            self.janela.close()
             from view.ViewFuncionarios import TelaFuncionarios
-            TelaFuncionarios(self.controlador)
+            TelaFuncionarios(self.controlador).abrir()
         else:
-            tk.messagebox.showerror("Erro", mensagem)
+            Sg.popup_error("Erro", mensagem)
 
     def retornar_tela_funcionario(self):
-        self.destroy()
+        self.janela.close()
         from view.ViewFuncionarios import TelaFuncionarios
-        TelaFuncionarios(self.controlador)
-
+        TelaFuncionarios(self.controlador).abrir()

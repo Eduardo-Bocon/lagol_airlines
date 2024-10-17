@@ -1,5 +1,6 @@
-from model.Pessoas.Pilotos import Piloto
-from model.Pessoas.Aeromocas import Aeromoca
+from dns.name import empty
+from model.Pessoas.Pilotos import Pilotos
+from model.Pessoas.Aeromocas import Aeromocas
 from dao.DAOFuncionario import DAOFuncionario
 from validate_docbr import CPF
 
@@ -8,6 +9,9 @@ class ControladorFuncionario:
         self.__dao = DAOFuncionario()
 
     def cadastrar_funcionario(self, nome, cpf, cargo):
+        if not nome:
+            return False, "Adicione um nome ao funcionário."
+
         cpf_objeto = CPF()
         if not cpf_objeto.validate(cpf):
             raise ValueError("CPF Inválido")
@@ -15,9 +19,9 @@ class ControladorFuncionario:
             return False, "Funcionário com esse CPF já cadastrado."
 
         if cargo == "Piloto":
-            funcionario = Piloto(nome=nome, cpf=cpf)
-        elif cargo == "Aeromoça":
-            funcionario = Aeromoca(nome=nome, cpf=cpf)
+            funcionario = Pilotos(nome=nome, cpf=cpf)
+        elif cargo == "Aeromoca":
+            funcionario = Aeromocas(nome=nome, cpf=cpf)
         else:
             return False, "Cargo inválido."
 
@@ -41,3 +45,13 @@ class ControladorFuncionario:
         if self.__dao.atualizar(funcionario):
             return True, "Nome do funcionário alterado com sucesso!"
         return False, "Erro ao alterar o nome do funcionário."
+
+    def deletar_funcionario(self, cpf):
+        funcionario = self.__dao.buscar_por_cpf(cpf)
+        if not funcionario:
+            return False, "Funcionário não encontrado."
+
+        if self.__dao.deletar(cpf):
+            return True, "Funcionário deletado com sucesso!"
+        return False, "Erro ao deletar o funcionário."
+

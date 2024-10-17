@@ -1,5 +1,5 @@
 from dao.DAO import DAO
-from model.Pessoas.Funcionarios import Funcionario
+from model.Pessoas.Funcionarios import Funcionarios
 
 class DAOFuncionario(DAO):
     def __init__(self):
@@ -18,7 +18,7 @@ class DAOFuncionario(DAO):
     def buscar_por_cpf(self, cpf):
         funcionario_dict = self.__collection.find_one({"cpf": cpf})
         if funcionario_dict:
-            return Funcionario(
+            return Funcionarios(
                 nome=funcionario_dict['nome'],
                 cpf=funcionario_dict['cpf'],
                 cargo=funcionario_dict['cargo']
@@ -28,7 +28,7 @@ class DAOFuncionario(DAO):
     def buscar_todos(self):
         funcionarios = []
         for funcionario_dict in self.__collection.find():
-            funcionarios.append(Funcionario(
+            funcionarios.append(Funcionarios(
                 nome=funcionario_dict['nome'],
                 cpf=funcionario_dict['cpf'],
                 cargo=funcionario_dict['cargo']
@@ -36,8 +36,20 @@ class DAOFuncionario(DAO):
         return funcionarios
 
     def atualizar(self, funcionario):
-        cpf = funcionario.cpf
-        if cpf in self.__collection:
-            self.__collection['cpf'] = funcionario
-            return True
-        return False
+        try:
+            result = self.__collection.update_one(
+                {"cpf": funcionario.cpf},  # Usa o CPF como identificador
+                {"$set": {"nome": funcionario.nome, "cargo": funcionario.cargo}}  # Atualiza os campos desejados
+            )
+            return result.modified_count > 0
+        except Exception as e:
+            print(f"Erro ao atualizar o funcionário: {e}")
+            return False
+
+    def deletar(self, cpf):
+        try:
+            result = self.__collection.delete_one({"cpf": cpf})
+            return result.deleted_count > 0
+        except Exception as e:
+            print(f"Erro ao deletar funcionário: {e}")
+            return False

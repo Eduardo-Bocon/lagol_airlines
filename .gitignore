@@ -1,2 +1,6 @@
-/.idea
+/.idea/
 .env
+/view/__pycache__/
+/model/__pycache__/
+/controller/__pycache__/
+/dao/__pycache__/

@@ -1,17 +1,17 @@
-from controller.ControladorPassageiro import ControladorPassageiro
+from controller.ControladorCliente import Controladorcliente
 from controller.ControladorAdminLogin import ControladorAdminLogin
 from controller.ControladorFuncionario import ControladorFuncionario
 from view.ViewLogin import TelaLogin
 
 class ControladorSistema:
     def __init__(self):
-        self.__controlador_passageiro = ControladorPassageiro()
+        self.__controlador_cliente = Controladorcliente()
         self.__controlador_admin_login = ControladorAdminLogin()
         self.__controlador_funcionario = ControladorFuncionario()
 
     @property
-    def controlador_passageiro(self):
-        return self.__controlador_passageiro
+    def controlador_cliente(self):
+        return self.__controlador_cliente
 
     @property
     def controlador_admin_login(self):
@@ -23,4 +23,4 @@ class ControladorSistema:
 
     def iniciar(self):
         app = TelaLogin(self)
-        app.mainloop()
+        app.abrir()

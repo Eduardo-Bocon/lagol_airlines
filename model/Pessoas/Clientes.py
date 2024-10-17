@@ -2,7 +2,7 @@ from model.Pessoas.Pessoas import Pessoas
 from datetime import date
 
 
-class Passageiro(Pessoas):
+class Clientes(Pessoas):
     def __init__(self, nome, cpf, data_nascimento:date, senha):
         super().__init__(nome, cpf)
         self.__data_nascimento = data_nascimento

@@ -1,9 +1,9 @@
 
-from model.Pessoas.Funcionarios import Funcionario
+from model.Pessoas.Funcionarios import Funcionarios
 
-class Aeromoca(Funcionario):
-    def __init__(self, nome, cpf, treinamento):
-        super().__init__(nome, cpf, "Aeromoça")
+class Aeromocas(Funcionarios):
+    def __init__(self, nome, cpf):
+        super().__init__(nome, cpf, "Aeromoca")
         self.__lotacao = []
 
     @property

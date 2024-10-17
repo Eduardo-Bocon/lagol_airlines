@@ -1,6 +1,6 @@
 from model.Pessoas.Pessoas import Pessoas
 
-class Funcionario(Pessoas):
+class Funcionarios(Pessoas):
     def __init__(self, nome, cpf, cargo):
         super().__init__(nome, cpf)
         self.__cargo = cargo

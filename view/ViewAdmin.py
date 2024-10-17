@@ -1,45 +1,60 @@
-import tkinter as tk
+import PySimpleGUI as Sg
 
-from view.ViewCadastroFuncionario import TelaCadastroFuncionario
-
-
-#from tkinter import messagebox
-
-class TelaAdmin(tk.Tk):
+class TelaAdmin:
     def __init__(self, controlador):
-        super().__init__()
         self.controlador = controlador
-        self.title("Tela Admin")
-        self.geometry("800x600")
+        self.janela = None
+        self.criar_janela()
 
-        self.voltar_button = tk.Button(self, text="Sair", command=self.voltar_para_login)
-        self.voltar_button.pack(side=tk.TOP, anchor='nw', padx=10, pady=10)
+    def criar_janela(self):
+        # Layout da tela de admin
+        layout = [
+            [Sg.Button('Sair', size=(10, 1), key='voltar'), Sg.Push()],
+            [Sg.Push(), Sg.Button('Funcionários', size=(30, 2), key='funcionarios'), Sg.Push()],
+            [Sg.Push(), Sg.Button('Aviões', size=(30, 2), key='avioes'), Sg.Push()],
+            [Sg.Push(), Sg.Button('Voos', size=(30, 2), key='voos'), Sg.Push()],
+            [Sg.Push(), Sg.Button('Ver Tickets Emitidos', size=(30, 2), key='tickets'), Sg.Push()]
+        ]
 
-        self.funcionarios_button = tk.Button(self, text="Funcionários", command=self.gerenciar_funcionarios)
-        self.funcionarios_button.pack(pady=(20, 5))
+        # Cria a janela
+        self.janela = Sg.Window('Tela Admin', layout, size=(600, 400))
 
-        self.avioes_button = tk.Button(self, text="Aviões", command=self.gerenciar_avioes)
-        self.avioes_button.pack(pady=(20, 5))
+    def abrir(self):
+        while True:
+            evento, valores = self.janela.read()
 
-        self.voos_button = tk.Button(self, text="Voos", command=self.gerenciar_voos)
-        self.voos_button.pack(pady=(20, 5))
+            if evento == Sg.WINDOW_CLOSED or evento == 'voltar':
+                self.voltar_para_login()
+                break
+            elif evento == 'funcionarios':
+                self.gerenciar_funcionarios()
+            elif evento == 'avioes':
+                self.gerenciar_avioes()
+            elif evento == 'voos':
+                self.gerenciar_voos()
+            elif evento == 'tickets':
+                self.ver_tickets_emitidos()
 
-        self.tickets_button = tk.Button(self, text="Ver Tickets Emitidos", command=self.ver_tickets_emitidos)
-        self.tickets_button.pack(pady=(20, 5))
+        self.janela.close()
 
     def voltar_para_login(self):
-        self.destroy()
+        self.janela.close()
         from view.ViewLogin import TelaLogin
-        TelaLogin(self.controlador)
+        TelaLogin(self.controlador).abrir()
 
-    def gerenciar_funcionarios(self): #Adicionar redirecionamento aqui
-        self.destroy()
+    def gerenciar_funcionarios(self):
+        self.janela.close()
         from view.ViewFuncionarios import TelaFuncionarios
-        TelaFuncionarios(self.controlador)
+        TelaFuncionarios(self.controlador).abrir()
 
-    def gerenciar_avioes(self): #Adicionar redirecionamento aqui
-        pass
-    def gerenciar_voos(self): #Adicionar redirecionamento aqui
-        pass
-    def ver_tickets_emitidos(self):  #Adicionar redirecionamento aqui
-        pass
+    def gerenciar_avioes(self):
+        # Implementação futura
+        Sg.popup("Gerenciar Aviões - Em desenvolvimento")
+
+    def gerenciar_voos(self):
+        # Implementação futura
+        Sg.popup("Gerenciar Voos - Em desenvolvimento")
+
+    def ver_tickets_emitidos(self):
+        # Implementação futura
+        Sg.popup("Ver Tickets Emitidos - Em desenvolvimento")

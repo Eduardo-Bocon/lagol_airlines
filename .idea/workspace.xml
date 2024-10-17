@@ -4,19 +4,32 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aa6ee010-62f6-4a22-9333-170215d0159f" name="Changes" comment="Correção do @dd_@dm!n.py">
+    <list default="true" id="aa6ee010-62f6-4a22-9333-170215d0159f" name="Changes" comment="Correção da alteração do Funcionário">
+      <change afterPath="$PROJECT_DIR$/view/ViewAlterarCliente.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/view/ViewCadastroCliente.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/view/ViewCliente.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/ControladorAdminLogin.py" beforeDir="false" afterPath="$PROJECT_DIR$/controller/ControladorAdminLogin.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controller/ControladorFuncionario.py" beforeDir="false" afterPath="$PROJECT_DIR$/controller/ControladorFuncionario.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/ControladorPassageiro.py" beforeDir="false" afterPath="$PROJECT_DIR$/controller/ControladorPassageiro.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/ControladorPassageiro.py" beforeDir="false" afterPath="$PROJECT_DIR$/controller/ControladorCliente.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/ControladorSistema.py" beforeDir="false" afterPath="$PROJECT_DIR$/controller/ControladorSistema.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dao/DAOFuncionario.py" beforeDir="false" afterPath="$PROJECT_DIR$/dao/DAOFuncionario.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/Pessoas/Passageiros.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/Pessoas/Passageiros.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dao/DAOPassageiro.py" beforeDir="false" afterPath="$PROJECT_DIR$/dao/DAOCliente.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/Pessoas/Aeromocas.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/Pessoas/Aeromocas.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/Pessoas/Cliente.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/Pessoas/Funcionarios.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/Pessoas/Funcionarios.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/Pessoas/Passageiros.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/Pessoas/Clientes.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/Pessoas/Pilotos.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/Pessoas/Pilotos.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/Reservas.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/Reservas.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/view/ViewAdmin.py" beforeDir="false" afterPath="$PROJECT_DIR$/view/ViewAdmin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/ViewAdminLogin.py" beforeDir="false" afterPath="$PROJECT_DIR$/view/ViewAdminLogin.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/view/ViewAlterarFuncionario.py" beforeDir="false" afterPath="$PROJECT_DIR$/view/ViewAlterarFuncionario.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/ViewAlterarPassageiro.py" beforeDir="false" afterPath="$PROJECT_DIR$/view/ViewAlterarPassageiro.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/ViewAlterarPassageiro.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/view/ViewCadastroFuncionario.py" beforeDir="false" afterPath="$PROJECT_DIR$/view/ViewCadastroFuncionario.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/ViewCadastroPassageiro.py" beforeDir="false" afterPath="$PROJECT_DIR$/view/ViewCadastroPassageiro.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/ViewCadastroPassageiro.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/view/ViewFuncionarios.py" beforeDir="false" afterPath="$PROJECT_DIR$/view/ViewFuncionarios.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/ViewLogin.py" beforeDir="false" afterPath="$PROJECT_DIR$/view/ViewLogin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/ViewPassageiro.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -199,7 +212,15 @@
       <option name="project" value="LOCAL" />
       <updated>1728262592058</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="corrigido a data e Funcionando condicional da idade e funcionando a alteração de nome do funcionario">
+      <option name="closed" value="true" />
+      <created>1728330405091</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1728330405091</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -248,16 +269,7 @@
     <MESSAGE value="Cadastro Passageiro OK&#10;&quot;Cadastro&quot; Admin Ok&#10;Login Ok" />
     <MESSAGE value="Atualização do Cadastro do Passageiro OK" />
     <MESSAGE value="Correção do @dd_@dm!n.py" />
-    <option name="LAST_COMMIT_MESSAGE" value="Correção do @dd_@dm!n.py" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/model/Pessoas/Cliente.py</url>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="corrigido a data e Funcionando condicional da idade e funcionando a alteração de nome do funcionario" />
+    <option name="LAST_COMMIT_MESSAGE" value="corrigido a data e Funcionando condicional da idade e funcionando a alteração de nome do funcionario" />
   </component>
 </project>
