@@ -39,7 +39,7 @@ class TelaCadastroCliente:
         senha = valores['senha']
         confirmar_senha = valores['confirmar_senha']
 
-        sucesso, mensagem = self.controlador.controlador_passageiro.cadastrar_passageiro(nome, cpf, data_nasc, senha, confirmar_senha)
+        sucesso, mensagem = self.controlador.controlador_cliente.cadastrar_cliente(nome, cpf, data_nasc, senha, confirmar_senha)
 
         if sucesso:
             Sg.popup("Sucesso", mensagem)
