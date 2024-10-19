@@ -9,7 +9,7 @@ class TelaCliente:
     def criar_janela(self):
         # Obtém os dados do Cliente logado
         cliente = self.controlador.controlador_cliente.cliente_logado
-        info_text = f"Nome: {cliente.nome} | CPF: {cliente.cpf} | Data de Nascimento: {cliente.data_nascimento}" if Cliente else "Nenhum Cliente logado"
+        info_text = f"Nome: {cliente.nome} | CPF: {cliente.cpf} | Data de Nascimento: {cliente.data_nascimento}" if cliente else "Nenhum Cliente logado"
 
         # Layout da tela do Cliente
         layout = [
