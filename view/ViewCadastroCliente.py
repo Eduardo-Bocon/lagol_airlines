@@ -44,7 +44,7 @@ class TelaCadastroCliente:
         if sucesso:
             Sg.popup("Sucesso", mensagem)
             self.janela.close()
-            from ViewLogin import TelaLogin
+            from view.ViewLogin import TelaLogin
             TelaLogin(self.controlador).abrir()
         else:
             Sg.popup_error("Erro", mensagem)
