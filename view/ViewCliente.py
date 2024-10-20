@@ -9,7 +9,7 @@ class TelaCliente:
     def criar_janela(self):
         # Obtém os dados do Cliente logado
         cliente = self.controlador.controlador_cliente.cliente_logado
-        info_text = f"Nome: {cliente.nome} | CPF: {cliente.cpf} | Data de Nascimento: {cliente.data_nascimento}" if Cliente else "Nenhum Cliente logado"
+        info_text = f"Nome: {cliente.nome} | CPF: {cliente.cpf} | Data de Nascimento: {cliente.data_nascimento}" if cliente else "Nenhum Cliente logado"
 
         # Layout da tela do Cliente
         layout = [
@@ -46,8 +46,10 @@ class TelaCliente:
         TelaLogin(self.controlador).abrir()
 
     def nova_reserva(self):
-        # Implementar redirecionamento para nova reserva
-        Sg.popup("Funcionalidade de Nova Reserva não implementada ainda.")
+        self.janela.close()
+        from view.ViewVerVoos import TelaVerVoos
+        TelaVerVoos(self.controlador).abrir()
+        
 
     def minhas_reservas(self):
         # Implementar redirecionamento para minhas reservas
