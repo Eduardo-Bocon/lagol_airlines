@@ -19,7 +19,7 @@ def adicionar_registro(nome, cpf, senha):
         raise ValueError("CPF inválido")
 
     hashed_password = bcrypt.hashpw(senha.encode('utf-8'), bcrypt.gensalt())
-    collection.insert_one({"username": nome, "senha": hashed_password, "cpf": cpf, "is_admin": True})
+    collection.insert_one({"username": nome, "senha": hashed_password, "cpf": cpf})
 
 admin_nome = str(input("Digite o nome do Admin: "))
 admin_cpf = str(input("Digite o CPF do Admin: "))
